@@ -260,7 +260,8 @@ NextInner:
             End Sub, "Donate")
         End If
         '正版购买提示
-        If CurrentLaunchOptions?.SaveBatch Is Nothing AndAlso '保存脚本时不提示
+        If False AndAlso '保存脚本时不提示
+           CurrentLaunchOptions?.SaveBatch Is Nothing AndAlso '保存脚本时不提示
            Not Settings.Get(Of Boolean)("HintBuy") AndAlso Settings.Get(Of McLoginType)("LoginType") <> McLoginType.Ms Then
             If Globalization.CultureInfo.CurrentCulture.Name.StartsWithF("zh") OrElse Globalization.CultureInfo.CurrentUICulture.Name.StartsWithF("zh") Then '中文？
                 RunInNewThread(
